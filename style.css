@@ -17,18 +17,6 @@ div {
     flex-grow: 1;
 }
 
-.display {
-    height: 4vw;
-    color: black;
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    line-height: 100%;
-    font-size: 5em;
-    background-color: azure;
-    margin-bottom: 0.5rem;
-}
-
 .calculator {
     height: 30rem;
     width: 20rem;
@@ -38,6 +26,30 @@ div {
     padding: 2rem;
     border-radius: 10px;
     flex-grow: 0;
+}
+
+.display {
+    height: 5rem;
+    width: 19rem;
+    color: black;
+    display: block;
+    font-size: 2.5em;
+    background-color: azure;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+    padding: 0.5rem;
+    flex-grow: 0;
+}
+
+.solution {
+    height: 50%;
+    font-size: 1.5rem;
+    opacity: 60%;
+}
+
+.main-display {
+    height: 50%;
+    text-align: end;
 }
 
 .row {

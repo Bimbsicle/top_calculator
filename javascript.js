@@ -50,6 +50,7 @@ function operate(operator,x,y) {
 
 function clear(){
     display.innerHTML = ""
+    solution.innerHTML = ""
     equalsPressed = true
     operatorPressed = false
     decimalPressed = false
@@ -64,8 +65,10 @@ let operatorPressed = false
 let equalsPressed = true
 let currentOperation = ""
 let decimalPressed = false
+let currentSolution = ""
 
-const display = document.querySelector('.display')
+const display = document.querySelector('.main-display')
+const solution = document.querySelector('.solution')
 const numberbtns = document.querySelectorAll('.number')
 const operatorbtns = document.querySelectorAll('.operator')
 const equalsbtn = document.querySelector('.equals')
@@ -93,13 +96,16 @@ operatorbtns.forEach(operatorbtn => {
             value2 = display.innerHTML
             operate(currentOperation, value1, value2)
             currentOperation = String(e.target.innerHTML)
-            display.innerHTML = ans
+            solution.innerHTML = `${ans} ${currentOperation}`
+            display.innerHTML = ""
             value1 = ans
             equalsPressed = true
         }
         else {
             value1 = display.innerHTML
             currentOperation = String(e.target.innerHTML)
+            currentSolution = `${value1} ${currentOperation}`
+            solution.innerHTML =  currentSolution
             equalsPressed = true
             operatorPressed = true
         }
@@ -109,6 +115,7 @@ operatorbtns.forEach(operatorbtn => {
 equalsbtn.addEventListener('click', function(){
     value2 = display.innerHTML
     operate(currentOperation, value1, value2)
+    solution.innerHTML = `${value1} ${currentOperation} ${value2} = ${ans}`
     display.innerHTML = ans
     equalsPressed = true
     operatorPressed = false
